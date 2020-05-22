@@ -1,0 +1,25 @@
+<div class="file-reader">
+
+  <div class="file-reader--select-file">
+    <div class="form-group">
+      <app-upload-file [formControl]="fileControl"
+        [btnLabel]="fileControl.valid && fileControl.value && 'Choose another file'"
+        (fileChange)="onFileChange($event)"></app-upload-file>
+      <div class="form-error-msg" *ngIf="fileControl.errors?.requiredFileType">
+        Only *.csv format is allowed
+      </div>
+    </div>
+  </div>
+
+  <div class="file-reader--filter" *ngIf="fileControl.valid && fileControl.value">
+    <mat-form-field>
+      <mat-label>Filter by issue count</mat-label>
+      <input matInput type="number" (keyup)="applyFilter($event)">
+    </mat-form-field>
+  </div>
+
+  <div class="file-reader--employees-table">
+    <app-employees-table></app-employees-table>
+  </div>
+
+</div>
