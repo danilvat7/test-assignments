@@ -6,13 +6,13 @@ import { NotFoundComponent } from './core/components';
 
 const routes: Routes = [
   {
-    path: 'file-reader',
+    path: 'employees',
     loadChildren: () =>
-      import('./features/file-reader/file-reader.module').then(
-        (m) => m.FileReaderModule
+      import('./features/employees/employees.module').then(
+        (m) => m.EmployeesModule
       ),
   },
-  { path: '', pathMatch: 'full', redirectTo: 'file-reader' },
+  { path: '', pathMatch: 'full', redirectTo: 'employees' },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
 ];

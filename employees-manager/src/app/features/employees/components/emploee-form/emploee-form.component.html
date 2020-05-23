@@ -1,0 +1,38 @@
+<div class="emploee-form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <mat-form-field class="form-group">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <div class="form-error-msg" *ngIf="form.get('name').touched && form.get('name').errors?.required">
+        Name is required
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="form-group">
+      <mat-label>Salary</mat-label>
+      <input type="number" matInput formControlName="salary">
+      <div class="form-error-msg" *ngIf="form.get('salary').touched && form.get('salary').errors?.required">
+        Salary is required
+      </div>
+      <div class="form-error-msg" *ngIf="form.get('salary').touched && form.get('salary').errors?.min">
+        Salary can't be less than 0
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="form-group">
+      <mat-label>Age</mat-label>
+      <input type="number" matInput formControlName="age">
+      <div class="form-error-msg" *ngIf="form.get('age').touched && form.get('age').errors?.required">
+        Age is required
+      </div>
+      <div class="form-error-msg" *ngIf="form.get('age').touched && form.get('age').errors?.min">
+        Age can't be less than 0
+      </div>
+    </mat-form-field>
+
+    <div class="form-group">
+      <button class="create-employee--submit-btn" mat-raised-button color="primary"
+        [disabled]="!form.valid">Create</button>
+    </div>
+  </form>
+</div>

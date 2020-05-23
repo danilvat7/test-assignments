@@ -1,0 +1,8 @@
+<div class="employees">
+  <div class="employees--header">
+    <button [routerLink]="['create']" mat-stroked-button color="primary">Create New Employee</button>
+  </div>
+  <div class="employees--table" *ngIf="employees?.length">
+    <app-employees-table [employees]="employees"></app-employees-table>
+  </div>
+</div>
