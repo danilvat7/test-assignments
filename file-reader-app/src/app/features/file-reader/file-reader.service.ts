@@ -35,6 +35,7 @@ export class FileReaderService {
       skipEmptyLines: true,
       complete: (result: any) => {
         const mergedData = this.employeesDataHandler(result.data);
+
         this.parsedEmployeesData.next(mergedData);
         this.filteredEmployeesData.next(mergedData);
       },
